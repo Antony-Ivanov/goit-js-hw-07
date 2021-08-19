@@ -1,6 +1,14 @@
-const itemsUl = [...document.querySelectorAll(".item")];
-// const itemsUl = document.querySelectorAll("#categories");
+const categories = document.querySelector('#categories');
 
-console.log(itemsUl);
-const itemUl = itemsUl.map(item => item.li);
-console.log(itemUl);
+// console.log(categories);
+
+const elementsItem = categories.querySelectorAll('.item');
+
+console.log(`В списке ${elementsItem.length} категории.`);
+
+elementsItem.forEach(element => {
+  console.log(
+    `Категория: ${element.firstElementChild.textContent} 
+      Количество элементов: ${element.querySelectorAll('li').length}`
+  );
+});
