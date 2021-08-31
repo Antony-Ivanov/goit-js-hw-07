@@ -1,1 +1,1 @@
-# goit-js-hw-07_
+# goit-js-hw-07
