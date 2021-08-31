@@ -1,3 +1,7 @@
+// Напиши скрипт, который для каждого элемента массива `ingredients` создаст
+// отдельный `li`, после чего вставит все `li` за одну операцию в список
+// `ul.ingredients`. Для создания DOM-узлов используй `document.createElement()`.
+
 const ingredients = [
   'Картошка',
   'Грибы',
@@ -7,34 +11,15 @@ const ingredients = [
   'Приправы',
 ];
 
-// const ingredients = document.querySelector('#ingredients');
-console.log(ingredients);
-const ingred = document.querySelector('#ingred-item');
-console.log(ingred);
+const ingredientsList = document.querySelector('#ingredients');
 
+const makeIngredientsOptions = elements => {
+  return elements.map(element => {
+    const itemEl = document.createElement('li');
+    itemEl.textContent = element;
+    return itemEl;
+  });
+};
 
-{/* <body>
-<div><h1>Привет!</h1></div>
-<div id='org_div1'>Текст выше сгенерирован автоматически.</div>
-</body> */}
-
-
-  document.body.onload = addElement;
-  let newLi = null;
-
-  function addElement() {
-
-    
-    let newLi = document.createElement('li');
-    
-    // ingrid = ingredients.map(el => el.innerHTML);
-    for (let ingred of ingredients) {
-      // ingredients.innerHTML = `<li id="ingred-item">${ingred}</li>`;
-      console.log(ingred)
-    }
-    // ingredients.insertAdjacentHTML(afterbegin, newLi);
-    // Добавляем только что созданный элемент в дерево DOM
-
-    // my_li = document.getElementById("org_div1");
-    document.body.insertBefore(newLi);
-  }
+const ingredientsItem = makeIngredientsOptions(ingredients);
+ingredientsList.append(...ingredientsItem);
